@@ -38,22 +38,39 @@ lerTodosDepartamento: async (req, res) => {
     }
 },
 
-novoDepartamento: async (req, res) => {
-    const { nome } = req.body;
+//novoDepartamento: async (req, res) => {
+ //   const { nome } = req.body;
+   // try {
+     //   const departamento = await Departamento.create({ nome });
+
+       // if (!departamento)
+         //   return res.status(400).json({
+           //     Error:
+             //       'Não foi possível processar pedido. Verifique se os parâmetros estão corretos',
+           // });
+
+       // res.status(201).json({ departamento });
+   // } catch (error) {
+     //   return res.status(500).json(error);
+    //}
+//},
+novoDepartamento : async (req, res) => {
+    const { nome } = req.body
+  
     try {
-        const departamento = await Departamento.create({ nome });
-
-        if (!departamento)
-            return res.status(400).json({
-                Error:
-                    'Não foi possível processar pedido. Verifique se os parâmetros estão corretos',
-            });
-
-        res.status(201).json({ departamento });
+      const departamento = Departamento.create({ nome });
+ 
+      if (!departamento) {
+        return res.status(400).json({
+          Error:
+            'Nao foi possivel processar pedido.Verifca se os paramentros estao corretos',
+        })
+      }
+      return res.status(201).json(departamento)
     } catch (error) {
-        return res.status(500).json(error);
+      return res.status(500).json(error)
     }
-},
+  },
 
 AtualizarDepartamento: async (req, res) => {
     const { id_departamento, nome } = req.params;
