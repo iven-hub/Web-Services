@@ -1,0 +1,16 @@
+{
+    "development":{
+    "host": "localhost",
+    "username": "postgres",
+    "password": "1234",
+    "database": "regsumarV24",
+    "dialect": "postgres",
+    "port": 5432,
+    "define":{
+        "timestamps":false,
+        "underscored": true
+    }
+    },
+    "test":{},
+    "production":{}
+}
